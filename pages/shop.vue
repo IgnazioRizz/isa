@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div class="title">
         <Title title="Catalogo" />
     </div>
@@ -66,3 +67,7 @@ function isEven(id){
     margin: 2rem;
 }
 </style>
+=======
+    
+</template>
+>>>>>>> e28160c (first commit)

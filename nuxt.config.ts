@@ -27,5 +27,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+<<<<<<< HEAD
   modules: ["@nuxt/ui"]
 });
+=======
+});
+>>>>>>> e28160c (first commit)

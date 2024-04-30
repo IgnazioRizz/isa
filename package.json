@@ -10,7 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@nuxt/ui": "^2.16.0",
+=======
+>>>>>>> e28160c (first commit)
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
