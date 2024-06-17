@@ -1,19 +1,12 @@
 <template>
     <div style="width: 30%;">
         <h2 style="font-size: 70px; text-align: center; margin: 0;">{{ article.title }}</h2>
-        <UCarousel v-slot="{ item }" :items="items" :ui="{
-            item: 'basis-full',
-            container: 'rounded-lg'
-        }" :prev-button="{
-            color: 'gray',
-            icon: 'i-heroicons-arrow-left-20-solid',
-            class: '-left-12'
-        }" :next-button="{
-        color: 'gray',
-        icon: 'i-heroicons-arrow-right-20-solid',
-        class: '-right-12'
-        }" arrows class="w-64 mx-auto">
-            <img :src="item" class="w-full" draggable="false">
+        <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full', container: 'rounded-lg'}" 
+            :prev-button="{ color: 'gray', icon: 'i-heroicons-arrow-left-20-solid', class: '-left-12'}" 
+            :next-button="{ color: 'gray', icon: 'i-heroicons-arrow-right-20-solid', class: '-right-12'}" 
+            arrows class="mx-8"
+        >
+            <img :src="item" class="" draggable="false">
         </UCarousel>
     </div>
     <div class="title-container">
@@ -26,15 +19,14 @@
 <script setup>
 const { article } = defineProps(['article']);
 
-
-    const items = [
-    'https://picsum.photos/600/800?random=1',
-    'https://picsum.photos/600/800?random=2',
-    'https://picsum.photos/600/800?random=3',
-    'https://picsum.photos/600/800?random=4',
-    'https://picsum.photos/600/800?random=5',
-    'https://picsum.photos/600/800?random=6'
-    ]
+const items = [
+'https://picsum.photos/600/800?random=1',
+'https://picsum.photos/600/800?random=2',
+'https://picsum.photos/600/800?random=3',
+'https://picsum.photos/600/800?random=4',
+'https://picsum.photos/600/800?random=5',
+'https://picsum.photos/600/800?random=6'
+]
 </script>
 
 <style>

@@ -1,21 +1,33 @@
-<script setup>
-</script>
-
 <template>
-    <UCard>
+    <UCard class="card">
         <template #header>
-            <Placeholder class="h-8" />
+            <div>
+                <span>{{ data.title }}</span>
+            </div>
         </template>
 
         <div>
-            <span>Articoli perfetti</span>
+            <span>{{ data.description }}</span>
         </div>
 
         <template #footer>
-            <Placeholder class="h-8" />
+            <span>
+                <Icon icon="noto:star" />
+            </span>
         </template>
     </UCard>
 </template>
 
+
+<script setup>
+import { Icon } from '@iconify/vue';
+
+const { data } = defineProps(['data'])
+</script>
+
 <style>
+.card{
+    width: 300px;
+    height: 250px;
+}
 </style>

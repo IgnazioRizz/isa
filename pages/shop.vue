@@ -1,7 +1,6 @@
 <template>
-<<<<<<< HEAD
-    <div class="title">
-        <Title title="Catalogo" />
+    <div class="flex flex-col justify-center items-center">
+        <Title title="CATALOGO" />
     </div>
     <div v-for="article of article_data" :key="article.id"
         :class="[isEven(article.id) ? 'article-container-even' : 'article-container']">
@@ -11,6 +10,7 @@
 
 <script setup>
 import Title from '~/components/Title.vue';
+import Article from '../components/Article.vue';
 
 const article_data = ref([
     {   
@@ -49,12 +49,6 @@ function isEven(id){
 </script>
 
 <style>
-.title{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
-}
 .article-container {
     display: flex;
     flex-direction: row;
@@ -67,7 +61,3 @@ function isEven(id){
     margin: 2rem;
 }
 </style>
-=======
-    
-</template>
->>>>>>> e28160c (first commit)
