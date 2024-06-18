@@ -10,14 +10,14 @@
         </div>
     </div>
     <div class="image-bg">
-        <div class="container" id="chi_sono">
+        <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="chi_sono">
             <div>
                 <Title title="CHI SONO" />
                 <span style="font-size: 38px;">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolorem modi quidem illum atque dicta sit error, fugiat est harum quas!
                 </span>
-                <div style="float: right; width: 50%; margin: 2rem 0;">
+                <div style="float: right; margin: 2rem 0;" class="lg:w-1/2 w-full">
                     <span style="font-size: 40px;">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, earum.
                     </span>
@@ -37,13 +37,13 @@
         </div>
     </div>
 
-    <div class="container" id="shop" style="margin-top: 160px;">
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1 w-full" id="shop" style="margin-top: 160px;">
         <Title title="SHOP" />
-        <div class="flex flex-row justify-between" style="width: 100%;">
-            <div class="flex justify-center items-center">
+        <div class="flex lg:flex-row flex-col justify-between">
+            <div class="flex justify-center items-center justify-center">
                 <Button title="ENTRA NEL CATALOGO" href="/shop" class="flex justify-center items-center" />
             </div>
-            <div style="">
+            <div>
                 <ul style="font-size: 50px" class="shop-instruction">
                     <li><span>1</span> VISITA LO SHOP</li>
                     <li><span>2</span> SCEGLI IL CAPO CHE PREFERISCI</li>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <div class="container" id="custom">
+    <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="custom">
         <Title title="CUSTOMIZATION" />
         <span style="font-size: 38px;">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
@@ -60,11 +60,11 @@
         </span>
         <div style="display: grid; gap: 2rem; grid-template-columns: auto auto;">
             <p v-for="(i, index) of image_customization" :key="index" class="image-item">
-                <Image :image_source="i" />
+                <Image :image_source="i" class="w-200"/>
             </p>
         </div>
     </div>
-    <div class="container" id="contact">
+    <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="contact">
         <Title title="CONTACT" />
         <div class="mb-8">
             <span style="font-size: 38px;">

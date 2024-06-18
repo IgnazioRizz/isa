@@ -3,6 +3,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
+      charset: 'utf-8',
+      viewport:'content="width=device-width, initial-scale=1',
       title: "IsaViking Art",
       meta: [
         {
@@ -27,9 +29,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-<<<<<<< HEAD
   modules: ["@nuxt/ui"]
 });
-=======
-});
->>>>>>> e28160c (first commit)
+
+
