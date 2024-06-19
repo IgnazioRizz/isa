@@ -44,20 +44,9 @@ const article_data = ref([
 ]);
 
 function isEven(id){
-    return id % 2 == 0;
+    return id % 2 === 0;
 }
 </script>
 
 <style>
-.article-container {
-    display: flex;
-    flex-direction: row;
-    margin: 2rem;
-}
-.article-container-even {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    margin: 2rem;
-}
 </style>

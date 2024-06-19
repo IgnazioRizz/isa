@@ -1,18 +1,17 @@
 <template>
-    <div style="width: 30%;">
-        <h2 style="font-size: 70px; text-align: center; margin: 0;">{{ article.title }}</h2>
-        <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full', container: 'rounded-lg'}" 
-            :prev-button="{ color: 'gray', icon: 'i-heroicons-arrow-left-20-solid', class: '-left-12'}" 
-            :next-button="{ color: 'gray', icon: 'i-heroicons-arrow-right-20-solid', class: '-right-12'}" 
-            arrows class="mx-8"
-        >
-            <img :src="item" class="" draggable="false">
-        </UCarousel>
+    <div class="flex justify-center">
+        <div class="w-full lg:w-2/3 xl:w-1/2">
+            <h2 class="text-4xl lg:text-6xl text-center mb-0">{{ article.title }}</h2>
+            <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden"
+                indicators>
+                <img :src="item" class="w-full h-auto" draggable="false">
+            </UCarousel>
+        </div>
     </div>
-    <div class="title-container">
-        <h3 style="font-size: 50px; margin: 0;">{{ article.description }}</h3>
-        <span style="font-size: 25px;">{{ article.long_description }}</span>
-        <Button title="Acquista" class="button" />
+
+    <div class="title-container w-full mt-8 text-center">
+        <h3 class="text-3xl lg:text-4xl mb-2">{{ article.description }}</h3>
+        <p class="text-lg lg:text-xl text-justify">{{ article.long_description }}</p>
     </div>
 </template>
 

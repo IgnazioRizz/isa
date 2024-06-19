@@ -20,7 +20,7 @@ const props = defineProps({
 .button-shop {
     width: 645px;
     height: 100px;
-    box-shadow: 0px 0px 25px rgb(58, 133, 255);
+    box-shadow: 0 0 25px rgb(58, 133, 255);
     background-color: transparent;
     border: 4px solid #3A86FF;
     border-radius: 30px;

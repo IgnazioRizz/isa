@@ -43,10 +43,10 @@
         </div>
     </div>
 
-    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="shop" \>
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="shop" />
         <Title title="SHOP" />
         <div class="flex lg:flex-row flex-col justify-between">
-            <div class="flex justify-center items-center justify-center">
+            <div class="flex items-center justify-center">
                 <Button title="ENTRA" href="/shop" class="flex justify-center items-center " />
             </div>
             <div>
@@ -72,7 +72,7 @@
         <div class="lg:hidden">
             <UCarousel v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
                 class="rounded-lg overflow-hidden my-3 mr-2" indicators>
-                <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false">
+                <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false" alt="">
             </UCarousel>
         </div>
     </div>
@@ -185,17 +185,6 @@ html {
     overflow: hidden;
 }
 
-.menu-container {
-    background-color: black;
-    opacity: 0.9;
-    width: 22.5vw;
-    height: 150vh;
-    transform: rotate(10deg) translate3d(-125px, -125px, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .menu {
     list-style: none;
     color: white;
@@ -207,10 +196,6 @@ html {
 
 .menu li {
     margin-bottom: 3rem;
-}
-
-.container {
-    margin: 50px 200px;
 }
 
 .image-container {
@@ -235,7 +220,7 @@ html {
 
 .shop-instruction span {
     color: #3A86FF;
-    text-shadow: 0px 0px 10px rgb(58, 133, 255);
+    text-shadow: 0 0 10px rgb(58, 133, 255);
     font-size: 50px;
     margin-right: 1rem;
 }
