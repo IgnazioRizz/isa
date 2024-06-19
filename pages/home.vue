@@ -1,6 +1,6 @@
 <template>
     <div class="homepage-container">
-        <div class="menu-container">
+        <div class="hidden lg:menu-container">
             <ul class="menu flex flex-col">
                 <li @click="scrollToElement('chi_sono')">CHI SONO</li>
                 <li @click="scrollToElement('shop')">SHOP</li>
@@ -10,41 +10,47 @@
         </div>
     </div>
     <div class="image-bg">
-        <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="chi_sono">
+        <div class="lg:mx-52 lg:my-14 mx-10 my-1 flex items-center justify-center" id="chi_sono">
             <div>
                 <Title title="CHI SONO" />
-                <span style="font-size: 38px;">
+                <span class="text-2xl lg:text-3xl">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolorem modi quidem illum atque dicta sit error, fugiat est harum quas!
                 </span>
-                <div style="float: right; margin: 2rem 0;" class="lg:w-1/2 w-full">
-                    <span style="font-size: 40px;">
+                <div v-if="image_whoami.length > 0" class="lg:hidden mt-4">
+                    <Image :image_source="image_whoami[0]" />
+                </div>
+                <div class="float-right mt-8 lg:w-1/2 w-full">
+                    <span class="block text-3xl lg:text-4xl">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, earum.
                     </span>
-                    <span style="font-size: 30px;">
+                    <span class="block text-xl lg:text-2xl">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis impedit cumque natus
                         obcaecati?
                         Maiores labore, exercitationem repudiandae magnam itaque et!
                     </span>
                 </div>
-                <div style="display: inline-flex; position: relative;">
-                    <div v-for="(i, index) of image_whoami" class="image-container"
-                        :style="{ textAlign: index > 1 ? 'end' : '' }">
+                <div class="hidden lg:inline-flex relative mt-8 gap-4">
+                    <div v-for="(i, index) in image_whoami" :key="index" class="image-container"
+                        :class="{ 'text-right': index > 1 }">
                         <Image :image_source="i" />
                     </div>
+                </div>
+                <div v-if="image_whoami.length > 1" class="lg:hidden mt-4">
+                    <Image :image_source="image_whoami[1]" />
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="lg:mx-52 lg:my-14 mx-10 my-1 w-full" id="shop" style="margin-top: 160px;">
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="shop" \>
         <Title title="SHOP" />
         <div class="flex lg:flex-row flex-col justify-between">
             <div class="flex justify-center items-center justify-center">
-                <Button title="ENTRA NEL CATALOGO" href="/shop" class="flex justify-center items-center" />
+                <Button title="ENTRA" href="/shop" class="flex justify-center items-center " />
             </div>
             <div>
-                <ul style="font-size: 50px" class="shop-instruction">
+                <ul class="mt-5 shop-instruction text-3xl lg:text-4xl flex flex-col gap-y-5">
                     <li><span>1</span> VISITA LO SHOP</li>
                     <li><span>2</span> SCEGLI IL CAPO CHE PREFERISCI</li>
                     <li><span>3</span> CONTATTAMI SU IG PER L'ACQUISTO</li>
@@ -52,45 +58,53 @@
             </div>
         </div>
     </div>
-    <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="custom">
-        <Title title="CUSTOMIZATION" />
-        <span style="font-size: 38px;">
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="custom">
+        <Title title="CUSTOM" />
+        <span class="text-3xl lg:text-4xl">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit.
             Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
         </span>
-        <div style="display: grid; gap: 2rem; grid-template-columns: auto auto;">
+        <div class="hidden lg:grid lg:gap-8 lg:grid-cols-2">
             <p v-for="(i, index) of image_customization" :key="index" class="image-item">
-                <Image :image_source="i" class="w-200"/>
+                <Image :image_source="i" class="w-200" />
             </p>
         </div>
+        <div class="lg:hidden">
+            <UCarousel v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
+                class="rounded-lg overflow-hidden my-3 mr-2" indicators>
+                <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false">
+            </UCarousel>
+        </div>
     </div>
-    <div class="lg:mx-52 lg:my-14 mx-2 my-1" id="contact">
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="contact">
         <Title title="CONTACT" />
         <div class="mb-8">
-            <span style="font-size: 38px;">
+            <span class="text-3xl lg:text-4xl">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
             </span>
         </div>
-        <div class="flex flex-row justify-between gap-x-4">
+        <div class="overflow-x flex flex-row justify-between gap-x-4">
             <p v-for="card of cards_data">
                 <Card :data="card" />
             </p>
         </div>
     </div>
-    <footer class="footer flex flex-row justify-around gap-x-4">
-        <p>
-            <Icon icon="logos:facebook" /> nome facebook
-        </p>
-        <p>
-            <Icon icon="skill-icons:instagram" /> Instagram
-        </p>
-        <p>
-            <Icon icon="marketeq:email-open" /> email
-        </p>
-        <p>
-            <Icon icon="fluent-emoji-flat:mobile-phone" /> telefono
-        </p>
+    <footer class="footer lg:flex flex-row justify-around gap-x-4 mt-3 grid">
+        <div class="lg:text-3xl text-xl">
+            <p>
+                <Icon icon="logos:facebook" /> nome facebook
+            </p>
+            <p>
+                <Icon icon="skill-icons:instagram" /> Instagram
+            </p>
+            <p>
+                <Icon icon="marketeq:email-open" /> email
+            </p>
+            <p>
+                <Icon icon="fluent-emoji-flat:mobile-phone" /> telefono
+            </p>
+        </div>
     </footer>
 </template>
 
@@ -222,13 +236,13 @@ html {
 .shop-instruction span {
     color: #3A86FF;
     text-shadow: 0px 0px 10px rgb(58, 133, 255);
-    font-size: 90px;
+    font-size: 50px;
     margin-right: 1rem;
 }
 
 .footer {
     background-color: rgba(0, 0, 0, 0.800);
-    font-size: 40px;
+    font-size: 35px;
     color: white;
     text-align: center;
 }

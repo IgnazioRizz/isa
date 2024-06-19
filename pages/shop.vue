@@ -3,7 +3,7 @@
         <Title title="CATALOGO" />
     </div>
     <div v-for="article of article_data" :key="article.id"
-        :class="[isEven(article.id) ? 'article-container-even' : 'article-container']">
+        :class="[isEven(article.id) ? 'flex flex-col lg:flex-row-reverse justify-start m-8' : 'flex flex-col lg:flex-row m-8']">
         <Article :article="article" />
     </div>
 </template>
