@@ -4,7 +4,7 @@
             <h2 class="text-4xl lg:text-6xl text-center mb-0">{{ article.title }}</h2>
             <UCarousel v-slot="{ item }" :items="items" :ui="{ item: 'basis-full' }" class="rounded-lg overflow-hidden"
                 indicators>
-                <img :src="item" class="w-full h-auto" draggable="false">
+                <img :src="item" class="w-full h-auto" draggable="false" alt="">
             </UCarousel>
         </div>
     </div>
@@ -35,11 +35,5 @@ const items = [
     flex-direction: column;
     margin: 5.5rem 0 0 3rem;
     gap: 2rem;
-}
-
-.button {
-    width: 90%;
-    height: 90px;
-    text-align: center;
 }
 </style>

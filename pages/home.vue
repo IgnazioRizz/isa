@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="shop" />
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="shop">
         <Title title="SHOP" />
         <div class="flex lg:flex-row flex-col justify-between">
             <div class="flex items-center justify-center">
