@@ -1,4 +1,8 @@
 <template>
+    <div class="m-2">
+        <Icon icon="mingcute:arrow-left-fill" />
+        <span>TORNA INDIETRO</span>
+    </div>
     <div class="flex flex-col justify-center items-center">
         <Title title="CATALOGO" />
     </div>
@@ -9,6 +13,7 @@
 </template>
 
 <script setup>
+import { Icon } from '@iconify/vue';
 import Title from '~/components/Title.vue';
 import Article from '../components/Article.vue';
 

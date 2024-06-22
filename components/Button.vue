@@ -1,10 +1,11 @@
 <template>
-    <nuxt-link type="button" class="button-shop" :to="props.href">
+    <NuxtLink type="button" class="button-shop" :to="props.href">
         {{ props.title }}
-    </nuxt-link>
+    </NuxtLink>
 </template>
 
 <script setup>
+
 const props = defineProps({
     title: {
         type: String,

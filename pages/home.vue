@@ -1,26 +1,20 @@
 <template>
     <div class="homepage-container">
-        <div class="hidden lg:menu-container">
-            <ul class="menu flex flex-col">
-                <li @click="scrollToElement('chi_sono')">CHI SONO</li>
-                <li @click="scrollToElement('shop')">SHOP</li>
-                <li @click="scrollToElement('custom')">CUSTOMIZATION</li>
-                <li @click="scrollToElement('contact')">CONTACT</li>
-            </ul>
-        </div>
+        <img class="hidden lg:w-full lg:h-auto" src="/image-home.jpg" alt="">
+        
     </div>
     <div class="image-bg">
         <div class="lg:mx-52 lg:my-14 mx-10 my-1 flex items-center justify-center" id="chi_sono">
             <div>
                 <Title title="CHI SONO" />
-                <span class="text-2xl lg:text-3xl">
+                <span class="text-2xl lg:text-3xl text-center">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolorem modi quidem illum atque dicta sit error, fugiat est harum quas!
                 </span>
                 <div v-if="image_whoami.length > 0" class="lg:hidden mt-4">
                     <Image :image_source="image_whoami[0]" />
                 </div>
-                <div class="float-right mt-8 lg:w-1/2 w-full">
+                <div class="float-right mt-8 mb-4 lg:w-1/2 w-full">
                     <span class="block text-3xl lg:text-4xl">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, earum.
                     </span>
@@ -66,13 +60,14 @@
         </span>
         <div class="hidden lg:grid lg:gap-8 lg:grid-cols-2">
             <p v-for="(i, index) of image_customization" :key="index" class="image-item">
-                <Image :image_source="i" class="w-200" />
+                <Image :image_source="i" class="" />
             </p>
         </div>
         <div class="lg:hidden">
             <UCarousel v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
                 class="rounded-lg overflow-hidden my-3 mr-2" indicators>
-                <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false" alt="">
+                <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false"
+                    alt="">
             </UCarousel>
         </div>
     </div>
@@ -90,13 +85,13 @@
             </p>
         </div>
     </div>
-    <footer class="footer lg:flex flex-row justify-around gap-x-4 mt-3 grid">
+    <footer class="footer flex flex-row justify-around gap-x-4 mt-3">
         <div class="lg:text-3xl text-xl">
             <p>
                 <Icon icon="logos:facebook" /> nome facebook
             </p>
             <p>
-                <Icon icon="skill-icons:instagram" /> Instagram
+                <Icon icon="skill-icons:instagram" /> @vicking.art
             </p>
             <p>
                 <Icon icon="marketeq:email-open" /> email
@@ -117,13 +112,13 @@ import Button from '~/components/Button.vue';
 
 const image_whoami = ref([
     {
-        src: './jovanotti.jpg', width: '80%', height: 'auto'
+        src: './jovanotti.jpg', width: '100%', height: 'auto'
     },
     {
-        src: './jovanotti.jpg', width: '80%', height: 'auto'
+        src: './jovanotti.jpg', width: '100%', height: 'auto'
     },
     {
-        src: './jovanotti.jpg', width: '80%', height: 'auto'
+        src: './jovanotti.jpg', width: '100%', height: 'auto'
     }
 ])
 
@@ -171,18 +166,17 @@ function scrollToElement(title) {
 <style>
 html {
     margin: 0;
-}
+}   
 
-.homepage-container {
-    background-image: url('./image-home.jpg');
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    max-height: 100vh;
-    max-width: 100vw;
-    display: flex;
-    justify-content: flex-end;
-    overflow: hidden;
+.menu-container {
+  background-color: black;
+  opacity: 0.9;
+  width: 22.5vw;
+  height: 150vh;
+  transform: rotate(10deg) translate3d(-125px, -125px, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu {
