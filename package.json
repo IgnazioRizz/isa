@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@nuxt/ui": "^2.16.0",
-
+    "@nuxtjs/cloudinary": "^3.0.0-rc.4",
     "nuxt": "^3.11.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"

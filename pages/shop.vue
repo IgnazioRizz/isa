@@ -1,8 +1,10 @@
 <template>
-    <div class="m-2">
-        <Icon icon="mingcute:arrow-left-fill" />
-        <span>TORNA INDIETRO</span>
-    </div>
+    <NuxtLink to="/home">
+        <div class="m-6 flex flex-row gap-x-2 text-xl">
+            <Icon icon="mingcute:arrow-left-fill" />
+            <span>TORNA INDIETRO</span>
+        </div>
+    </NuxtLink>
     <div class="flex flex-col justify-center items-center">
         <Title title="CATALOGO" />
     </div>

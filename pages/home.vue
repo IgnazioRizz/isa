@@ -1,7 +1,12 @@
 <template>
-    <div class="homepage-container">
-        <img class="hidden lg:w-full lg:h-auto" src="/image-home.jpg" alt="">
-        
+    <div class="homepage-container relative w-full h-screen overflow-hidden">
+        <img class=" md:w-full md:h-screen" src="/image-home.jpg" alt="">
+        <video autoplay loop muted playsinline class="md:hidden absolute top-0 left-0 w-full h-full object-cover">
+            <source src="/video_homepage.mp4" type="video/mp4">
+        </video>
+        <div class="absolute left-1/3 md:left-1/2 bottom-1">
+            <img src="/arrow.gif" alt="">
+        </div>
     </div>
     <div class="image-bg">
         <div class="lg:mx-52 lg:my-14 mx-10 my-1 flex items-center justify-center" id="chi_sono">
@@ -54,51 +59,68 @@
     </div>
     <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="custom">
         <Title title="CUSTOM" />
-        <span class="text-3xl lg:text-4xl">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
-        </span>
+        <div class="mb-4">
+            <span class="text-3xl lg:text-4xl">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
+            </span>
+        </div>
         <div class="hidden lg:grid lg:gap-8 lg:grid-cols-2">
             <p v-for="(i, index) of image_customization" :key="index" class="image-item">
                 <Image :image_source="i" class="" />
             </p>
         </div>
-        <div class="lg:hidden">
-            <UCarousel v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
-                class="rounded-lg overflow-hidden my-3 mr-2" indicators>
+        <div class="lg:hidden image-hor mt-3 p-6 md:p-10 border-5 border-transparent inline-block">
+            <UCarousel ref="carouselRefHome" v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
+                class="rounded-lg overflow-hidden block max-w-full border-5 border-transparent">
                 <img :src="item.src" :width="item.width" :height="item.height" class="w-full h-auto" draggable="false"
                     alt="">
             </UCarousel>
         </div>
     </div>
     <div class="lg:mx-52 lg:my-14 mx-10 my-1" id="contact">
-        <Title title="CONTACT" />
+        <Title title="CONTACT US" />
         <div class="mb-8">
             <span class="text-3xl lg:text-4xl">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
             </span>
         </div>
-        <div class="overflow-x flex flex-row justify-between gap-x-4">
+        <div class="overflow-x-auto flex flex-row justify-between gap-x-4 w-full
+        ">
             <p v-for="card of cards_data">
                 <Card :data="card" />
             </p>
         </div>
     </div>
-    <footer class="footer flex flex-row justify-around gap-x-4 mt-3">
-        <div class="lg:text-3xl text-xl">
-            <p>
-                <Icon icon="logos:facebook" /> nome facebook
-            </p>
-            <p>
-                <Icon icon="skill-icons:instagram" /> @vicking.art
-            </p>
-            <p>
-                <Icon icon="marketeq:email-open" /> email
-            </p>
-            <p>
-                <Icon icon="fluent-emoji-flat:mobile-phone" /> telefono
-            </p>
+    <div class="lg:mx-52 lg:my-14 mx-10 my-1">
+        <Title title="FAQs" />
+        <div>
+            <UAccordion color="blue" variant="ghost" size="lg" class="text-lg"
+                :items="[{ label: '1. What is Nuxt UI?', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '2. Getting Started', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '3. Theming', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '4. Components', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }]" />
+        </div>
+    </div>
+
+    <footer class="footer mt-3 lg:text-3xl text-xl md:flex md:flex-row md:justify-between">
+        <div class="flex flex-row">
+            <span>Seguici su:</span>
+            <span>
+                <Icon icon="devicon:facebook" class="rounded-lg" />
+            </span>
+            <span>
+                <Icon icon="skill-icons:instagram" />
+            </span>
+        </div>
+        <div class="flex flex-row">
+            <span class="text-left">Contattaci su:</span>
+            <div class="flex flex-col text-xl">
+                <span>
+                    email@email.com
+                </span>
+                <span>
+                    +39 1234567890
+                </span>
+            </div>
         </div>
     </footer>
 </template>
@@ -109,7 +131,7 @@ import { Icon } from '@iconify/vue';
 import Title from '~/components/Title.vue';
 import Button from '~/components/Button.vue';
 
-
+const carouselRefHome = ref();
 const image_whoami = ref([
     {
         src: './jovanotti.jpg', width: '100%', height: 'auto'
@@ -130,7 +152,7 @@ const image_customization = ref([
         src: './jovanotti.jpg', width: '100%', height: 'auto'
     },
     {
-        src: './jovanotti.jpg', width: '100%', height: 'auto'
+        src: './jovanotti.jpg', width: '80%', height: 'auto'
     },
     {
         src: './jovanotti.jpg', width: '100%', height: 'auto'
@@ -140,7 +162,7 @@ const image_customization = ref([
 const cards_data = ref([
     {
         title: 'Recensione 1',
-        description: 'Articolo veramente bello'
+        description: 'Qua poi mettiamo le foto delle recensioni'
     },
     {
         title: 'Recensione 1',
@@ -155,12 +177,17 @@ const cards_data = ref([
         description: 'Articolo veramente bello'
     }])
 
+onMounted(() => {
+    setInterval(() => {
+        if (!carouselRefHome.value) return
 
-function scrollToElement(title) {
-    const element = document.getElementById(title);
-    element.scrollIntoView({ behavior: "smooth" });
-}
+        if (carouselRefHome.value.page === carouselRefHome.value.pages) {
+            return carouselRefHome.value.select(0)
+        }
 
+        carouselRefHome.value.next()
+    }, 3000)
+})
 </script>
 
 <style>
@@ -221,12 +248,11 @@ html {
 
 .footer {
     background-color: rgba(0, 0, 0, 0.800);
-    font-size: 35px;
-    color: white;
+        color: white;
     text-align: center;
 }
 
 .footer span {
-    margin: 2rem;
+    margin: 1rem;
 }
 </style>

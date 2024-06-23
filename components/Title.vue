@@ -1,5 +1,5 @@
 <template>
-    <span style="font-size: 90px;">{{ title }}</span>
+    <span style="font-size: 75px;">{{ title }}</span>
     <div class="first-rect"></div>
     <div class="second-rect"></div>
 </template>
