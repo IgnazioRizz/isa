@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport:'content="width=device-width, initial-scale=1" ',
       title: "IsaViking Art",
       meta: [
         {

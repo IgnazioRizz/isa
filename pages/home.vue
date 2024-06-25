@@ -29,15 +29,17 @@
                         Maiores labore, exercitationem repudiandae magnam itaque et!
                     </span>
                 </div>
-                <div class="hidden lg:inline-flex relative mt-8 gap-4">
-                    <div v-for="(i, index) in image_whoami" :key="index" class="image-container"
-                        :class="{ 'text-right': index > 1 }">
-                        <Image :image_source="i" />
+                <ClientOnly>
+                    <div class="hidden lg:inline-flex relative mt-8 gap-4">
+                        <div v-for="(i, index) in image_whoami" :key="index" class="image-container"
+                            :class="{ 'text-right': index > 1 }">
+                            <Image :image_source="i" />
+                        </div>
                     </div>
-                </div>
-                <div v-if="image_whoami.length > 1" class="lg:hidden mt-4">
-                    <Image :image_source="image_whoami[1]" />
-                </div>
+                    <div v-if="image_whoami.length > 1" class="lg:hidden mt-4">
+                        <Image :image_source="image_whoami[1]" />
+                    </div>
+                </ClientOnly>
             </div>
         </div>
     </div>
@@ -66,9 +68,11 @@
             </span>
         </div>
         <div class="hidden lg:grid lg:gap-8 lg:grid-cols-2">
-            <p v-for="(i, index) of image_customization" :key="index" class="image-item">
-                <Image :image_source="i" class="" />
-            </p>
+            <ClientOnly>
+                <p v-for="(i, index) of image_customization" :key="`p-item--${index}`" class="image-item">
+                    <Image :image_source="i" class="" />
+                </p>
+            </ClientOnly>
         </div>
         <div class="lg:hidden image-hor mt-3 p-6 md:p-10 border-5 border-transparent inline-block">
             <UCarousel ref="carouselRefHome" v-slot="{ item }" :items="image_customization" :ui="{ item: 'basis-full' }"
@@ -86,17 +90,18 @@
                 Inventore magnam animi ipsam numquam non ratione vitae dolores minima eum est!
             </span>
         </div>
-        <div class="overflow-x-auto flex flex-row justify-between gap-x-4 w-full
-        ">
-            <p v-for="card of cards_data">
-                <Card :data="card" />
-            </p>
+        <div class="overflow-x-auto flex flex-row justify-between gap-x-4 w-full">
+            <ClientOnly>
+                <p v-for="card of cards_data">
+                    <Card :data="card" />
+                </p>
+            </ClientOnly>
         </div>
     </div>
     <div class="lg:mx-52 lg:my-14 mx-10 my-1">
         <Title title="FAQs" />
-        <div>
-            <UAccordion color="blue" variant="ghost" size="lg" class="text-lg"
+        <div class="text-lg">
+            <UAccordion color="blue" variant="ghost" size="lg"
                 :items="[{ label: '1. What is Nuxt UI?', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '2. Getting Started', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '3. Theming', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }, { label: '4. Components', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit' }]" />
         </div>
     </div>
@@ -152,7 +157,7 @@ const image_customization = ref([
         src: './jovanotti.jpg', width: '100%', height: 'auto'
     },
     {
-        src: './jovanotti.jpg', width: '80%', height: 'auto'
+        src: './jovanotti.jpg', width: '100%', height: 'auto'
     },
     {
         src: './jovanotti.jpg', width: '100%', height: 'auto'

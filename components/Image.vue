@@ -1,6 +1,6 @@
 <template>
     <div class="image-hor p-4 md:p-10 border-5 border-transparent inline-block">
-        <img class="block max-w-full border-5 border-transparent"
+        <img class="block max-w-full border-5 border-transparent" alt=""
             :src="image_source.src" 
             :width="image_source.width"
             :height="image_source.height">
